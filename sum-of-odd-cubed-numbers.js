@@ -2,8 +2,9 @@
 
 function cubeOdd(arr) {
     const cubes = arr.map(x => Math.pow(x, 3));
+    if (cubes.some(isNaN)) return;
     const odds = cubes.filter(x => x % 2);
-    if (cubes.some(isNaN) || !odds.length) return;
+    if (!odds.length) return 0;
     return odds.reduce((a, b) => a + b);
 }
 
